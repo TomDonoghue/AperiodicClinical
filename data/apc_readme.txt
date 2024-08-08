@@ -114,9 +114,10 @@ Fit Method
 		unclear		- The analysis method is not clearly reported.
 Fit Range
 	The frequency range, in Hz, that was analyzed for the aperiodic measure.
-Settings Reported
+Report Settings
 	Whether settings were reported for the fit method, if applicable.
-	Reported as Yes / No.
+	Reported as Yes / No. 
+	Coded as Yes if some or all settings are reported - could be a partial report.
 Report GOF
 	Whether goodness-of-fit metrics (r-squared and/or fit error) were reported for the fit method, if applicable. 
 	Reported as Yes / No.
