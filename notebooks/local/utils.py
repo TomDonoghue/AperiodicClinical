@@ -38,8 +38,9 @@ def sort_df(df, column, end_label=None, copy=True):
     labels = [el[0] for el in Counter(df[column]).most_common()]
     
     if end_label:
-        labels.remove(end_label)
-        labels = labels + [end_label]
+        for el in [end_label] if isinstance(end_label, str) else end_label:
+            labels.remove(el)
+            labels = labels + [el]
 
     df[column] = pd.Categorical(df[column], labels)
     
