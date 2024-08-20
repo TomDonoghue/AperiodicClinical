@@ -12,21 +12,25 @@ from .utils import sort_df
 ####################################################################################################
 ####################################################################################################
 
+COLOR_DEFAULT = '#111dcf'
+SHRINK_DEFAULT = 0.8
+
 def plot_hist(df, column, figsize=(3, 2.25), sort=True, end_label=None,
-              remove_xlabel=True, **kwargs):
+              rotate_x=True, remove_xlabel=True, **kwargs):
     """Helper function to plot a histogram of data."""
     
     # Settings
-    color = kwargs.pop('color', '#111dcf')
-    shrink = kwargs.pop('shrink', 0.8)
+    color = kwargs.pop('color', COLOR_DEFAULT)
+    shrink = kwargs.pop('shrink', SHRINK_DEFAULT)
     
     if sort:
         df = sort_df(df, column, end_label)
     
     plt.figure(figsize=figsize)
     hist = sns.histplot(df, x=column, shrink=shrink, color=color, **kwargs)
-    hist.set_xticks(hist.get_xticks())  
-    hist.set_xticklabels(hist.get_xticklabels(), rotation=45, ha='right')
+    if rotate_x:
+        hist.set_xticks(hist.get_xticks())  
+        hist.set_xticklabels(hist.get_xticklabels(), rotation=45, ha='right')
     
     if remove_xlabel:
         hist.set(xlabel=None);

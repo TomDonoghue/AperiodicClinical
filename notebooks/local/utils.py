@@ -53,8 +53,11 @@ def min_count(df, column, min_value):
     return df.groupby(column).filter(lambda x : len(x) > min_value)
 
 
-def replace_multi_str(df, column, fill='multiple'):
+def replace_multi_str(df, column, fill='multiple', copy=True):
     """Replace entries with multiple values with a string."""
+    
+    if copy:
+        df = df.copy()
     
     split = '\u2028'
     multicol = df[column].str.contains(split).values
@@ -64,13 +67,30 @@ def replace_multi_str(df, column, fill='multiple'):
     return df
 
 
-def replace_multi_int(df, column):
-    """Replace entries with multiple values with the sume."""
+def replace_multi_int(df, column, copy=True):
+    """Replace entries with multiple values with the sum."""
+    
+    if copy:
+        df = df.copy()
     
     split = '\u2028'
     dubvals = df[column].str.contains(split).values
     for rind, row in df[dubvals].iterrows():
         df.loc[rind, column] = sum([int(el) for el in row[column].split(split)])
+        
+    return df
+
+
+def replace_multi_first(df, column, copy=True):
+    """Replace entries with multiple values with the first value."""
+
+    if copy:
+        df = df.copy()
+
+    split = '\u2028'
+    dubvals = df[column].str.contains(split).values
+    for rind, row in df[dubvals].iterrows():
+        df.loc[rind, column] = row[column].split(split)[0]
         
     return df
 
@@ -89,3 +109,27 @@ def replace_other(df, column, min_val):
     df[column] = pd.Categorical(df[column], kept + ['other'])    
     
     return df
+
+
+def count_results(df, analysis):
+    """Count result directions for a specified analysis."""
+
+    counts = {'total' : 0, 'up' : 0, 'down' : 0, 'null' : 0, 'unknown' : 0}
+    for an, re in zip(df['Analysis'].values, df['Reported Finding for Aperiodic Exponent'].values):
+        try:
+            ind = an.split('\u2028').index(analysis)
+            re = re.split('\u2028')[ind]
+            counts['total'] += 1
+            if re[0] == '⬇':
+                counts['down'] += 1
+            elif re[0] == '⬆':
+                counts['up'] += 1
+            elif re[0] == '∅':
+                counts['null'] += 1
+            else:
+                counts['unknown'] += 1
+
+        except:
+            pass
+        
+    return counts
