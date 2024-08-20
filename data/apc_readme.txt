@@ -173,7 +173,7 @@ Interpretation
 		timescale		- relating to the autocorrelation / characteristic timescale of the time series
 		integration		- relating to the integration vs segregation of the neural circuit
 		neurotransmission	- relating to the neurotransmission in the underlying circuit
-		unclear			- no clear interpretation of aperiodic activity is stated
+		unstated		- no specific interpretation of aperiodic activity is stated
 Notes
 	Miscellaneous additional notes about the report. Adds information about the design / approach of the study.
 	Also lists any relevant observations related to the aperiodic analyses.
