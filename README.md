@@ -22,7 +22,7 @@ If you want to re-run this project, you will need some external dependencies.
 
 - [specparam](https://github.com/fooof-tools/fooof) >= 2.0.0
 - [neurodsp](https://github.com/neurodsp-tools/neurodsp) >= 2.3.0
-- [lisc](https://github.com/lisc-tools/lisc) >= 0.3.0
+- [lisc](https://github.com/lisc-tools/lisc) >= 0.4.0
 
 You can install the extra required dependencies by running:
 
