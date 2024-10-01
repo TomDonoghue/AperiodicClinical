@@ -36,6 +36,7 @@ This project repository is set up in the following way:
 
 - `data/` includes data from the project, including the literature data
 - `notebooks/` includes Jupyter notebooks that step through the project and create the figures
+- `prisma/` includes filled out PRISMA checklists for this project as a systematic review
 
 ## Data
 
