@@ -8,5 +8,8 @@
 # Ignore mac directory files
 .DS_Store
 
+# Ignore figure files
+*.pdf
+
 # Ignore word files
 *.docx
