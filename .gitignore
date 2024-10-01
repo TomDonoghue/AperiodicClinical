@@ -7,3 +7,6 @@
 
 # Ignore mac directory files
 .DS_Store
+
+# Ignore word files
+*.docx
