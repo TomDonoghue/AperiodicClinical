@@ -20,6 +20,10 @@ This notebook does systematic & automated literature searches, collected referen
 
 This notebook analyzes the collected literature dataset.
 
-### 05-LiteratureAnalyses-Time
+### 05-LiteratureAnalyses-FreqRanges
+
+This notebook analyzes the reported frequency ranges in the collected literature dataset.
+
+### 06-LiteratureAnalyses-Time
 
 This notebook analyzes the collected literature dataset across time.
