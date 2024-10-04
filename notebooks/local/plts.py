@@ -47,7 +47,7 @@ def plot_over_time(data, field, title=None, no_yt=False, ylabel=None, ax=None, *
     x_data = list(data.keys())
     y_data = [data[year][field] for year in data.keys()]
 
-    ax = check_ax(ax, plt_kwargs.pop('figsize', (6, 5)))
+    ax = check_ax(ax, plt_kwargs.pop('figsize', (5, 4.5)))
 
     ax.plot(x_data, y_data,
             linewidth=check_aliases(plt_kwargs, ['linewidth', 'lw'], 4),
@@ -62,7 +62,7 @@ def plot_over_time(data, field, title=None, no_yt=False, ylabel=None, ax=None, *
 
     ax.set_xticks([2020, 2021, 2022, 2023, 2024])
     ax.set_xticklabels(['<2021', '2021', '2022', '2023', '2024'])
-    ax.set_xlabel('Publication Year')
+    ax.set_xlabel('Year of Publication')
 
     if no_yt:
         ax.set_yticks([])
