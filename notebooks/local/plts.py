@@ -14,16 +14,19 @@ from .utils import sort_df
 ####################################################################################################
 ####################################################################################################
 
-COLOR_DEFAULT = '#111dcf'
-SHRINK_DEFAULT = 0.8
+## SETTINGS
+COLOR1 = '#0656a1'    # '#111dcf', '#0b23b0'
+COLOR2 = '#a10630'
+SHRINK = 0.8
+
 
 def plot_hist(df, column, figsize=(3, 2.25), sort=True, end_label=None,
               rotate_x=True, remove_xlabel=True, **kwargs):
     """Helper function to plot a histogram of data."""
 
     # Settings
-    color = kwargs.pop('color', COLOR_DEFAULT)
-    shrink = kwargs.pop('shrink', SHRINK_DEFAULT)
+    color = kwargs.pop('color', COLOR1)
+    shrink = kwargs.pop('shrink', SHRINK)
 
     if sort:
         df = sort_df(df, column, end_label)
@@ -51,7 +54,7 @@ def plot_over_time(data, field, title=None, no_yt=False, ylabel=None, ax=None, *
             marker=plt_kwargs.pop('marker', '.'),
             markersize=check_aliases(plt_kwargs, ['markersize', 'ms'], 14),
             markerfacecolor=plt_kwargs.pop('markerfacecolor', 'white'),
-            color=plt_kwargs.pop('color', '#0656a1'),
+            color=plt_kwargs.pop('color', COLOR1),
             **plt_kwargs)
 
     if title:
@@ -68,6 +71,15 @@ def plot_over_time(data, field, title=None, no_yt=False, ylabel=None, ax=None, *
 
     if max(y_data) < 1.0:
         ax.set_ylim([0, 1.0])
+
+
+def plot_franges(ranges, ax=None, **plt_kwargs):
+    """Plot frequency ranges."""
+
+    ax = check_ax(ax, plt_kwargs.pop('figsize', (4, 8)))
+    for ind, crange in enumerate(sorted(ranges)):
+        ax.plot(crange, [ind, ind], color=COLOR1)
+    ax.set(xlim=[0, 75], ylim=[-1, ind+1], yticks=[], xlabel='Frequency Range');
 
 
 def savefig(save_fig, file_name, folder=None):
