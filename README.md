@@ -12,7 +12,12 @@ You can step through all the analyses and results in this project by stepping th
 
 ## Reference
 
-Preprint for this project upcoming.
+This project is described in the following preprint:
+
+    Donoghue T. A systematic review of aperiodic neural activity in clinical investigations.
+    medRxiv. DOI: 10.1101/2024.10.14.24314925
+
+Direct Link: https://doi.org/10.1101/2024.10.14.24314925
 
 ## Requirements
 
