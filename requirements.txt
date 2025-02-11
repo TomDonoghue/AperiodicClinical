@@ -1,0 +1,7 @@
+numpy
+pandas
+matplotlib
+seaborn
+specparam >= 2.0.0
+neurodsp >= 2.3.0
+lisc >= 0.4.0
