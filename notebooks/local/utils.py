@@ -76,7 +76,9 @@ def replace_multi_int(df, column, copy=True):
     split = '\u2028'
     dubvals = df[column].str.contains(split).values
     for rind, row in df[dubvals].iterrows():
-        df.loc[rind, column] = sum([int(el) for el in row[column].split(split)])
+        split_vals = [el for el in row[column].split(split)]
+        split_vals = [int(el) if el != '-' else 0 for el in split_vals]
+        df.loc[rind, column] = sum(split_vals)
 
     return df
 
