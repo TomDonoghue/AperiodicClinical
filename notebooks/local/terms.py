@@ -12,7 +12,7 @@ TERMS = {
             'aperiodic slope',
             'spectral exponent',
             'spectral slope',
-            '1/f slope', 
+            '1/f slope',
             '1/f exponent',
         ],
     ],
@@ -21,11 +21,11 @@ TERMS = {
     'CLINICAL' : [
         ['clinical'],
         ['disorder', 'disease'],
-        ['biomarker'], 
+        ['biomarker'],
         ['diagnosis', 'diagnostic'],
         ['treatment'],
     ],
-    
+
     # Set disorder terms
     'DISORDERS' : [
         ["parkinson's"],
@@ -63,9 +63,12 @@ TERMS = {
         ['tinnitus'],
         ['tourette'],
         ['tuberous sclerosis complex'],
+        ['delirium'],
+        ['stutter'],
+        ['cancer'],
     ],
 }
-    
+
 # Define exclusion terms
 EXCLUSIONS = ['acid', 'protein', 'ion', 'enzyme', 'ultrasound',
               'cancer', 'halide', 'spectroscopy', 'iodide', 'tissue']
